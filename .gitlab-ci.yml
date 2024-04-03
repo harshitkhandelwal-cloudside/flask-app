@@ -1,4 +1,4 @@
-image: docker:19-git
+image: gcr.io/google.com/cloudsdktool/google-cloud-cli:466.0.0-alpine
 services:
     - docker:19-dind
 variables:
