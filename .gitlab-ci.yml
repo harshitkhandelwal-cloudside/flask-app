@@ -3,9 +3,9 @@ services:
     - docker:23-dind
 variables:
     DOCKER_HOST: tcp://docker:2376
-    DOCKER_TLS_CERTDIR: "/certs"
-    DOCKER_TLS_VERIFY: 1
-    DOCKER_CERT_PATH: "/certs/client"
+    DOCKER_TLS_CERTDIR: ""
+      # DOCKER_TLS_VERIFY: 1
+      #DOCKER_CERT_PATH: "/certs/client"
     FF_NETWORK_PER_BUILD: "true"  
 stages:
   - build_push
