@@ -1,4 +1,6 @@
 FROM python:3.9-slim
+ENV DOCKER_BUILDKIT=0
+ENV COMPOSE_DOCKER_CLI_BUILD=0
 WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
