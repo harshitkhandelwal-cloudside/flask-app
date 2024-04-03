@@ -5,7 +5,8 @@ default:
 stages:
   - build
   - push
-
+variables:    
+  DOCKER_HOST: tcp://docker:2376
 build:
   stage: build
   script:
