@@ -1,5 +1,5 @@
 default:
-  image: gcr.io/google.com/cloudsdktool/google-cloud-cli:466.0.0-alpine
+  image: docker:24.0.5
   services:
     - docker:24.0.5-dind
 stages:
