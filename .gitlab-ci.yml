@@ -1,11 +1,17 @@
+default:
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
 stages:
-  - run_command
+  - build
+  - push   
 
-run_command:
-  stage: run_command
-  image: alpine:latest  # Use an image that includes the necessary tools for your command
-
+build:
   script:
-    - echo "Running my simple Linux command"
-    - ls  # Replace with the actual command you want to run
+    - docker build -t flaskapp3  .
+push:
+  script:
+    - docker tag flaskapp3 us-east1-docker.pkg.dev/trans-vehicle-418406/argorollouts/flaskapp3
+    - gcloud auth configure-docker us-east1-docker.pkg.dev
+    - docker push us-east1-docker.pkg.dev/trans-vehicle-418406/argorollouts/flaskapp3
 
