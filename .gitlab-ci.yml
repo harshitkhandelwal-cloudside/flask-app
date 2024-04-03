@@ -1,5 +1,5 @@
 default:
-  image: docker:24.0.5
+  image: gcr.io/google.com/cloudsdktool/google-cloud-cli:466.0.0-alpine
   services:
     - docker:24.0.5-dind
 stages:
@@ -8,6 +8,7 @@ stages:
 variables:    
   DOCKER_HOST: tcp://docker:2376
   DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: ""  
 build:
   stage: build
   script:
