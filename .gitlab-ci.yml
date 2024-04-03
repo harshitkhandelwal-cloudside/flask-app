@@ -1,12 +1,13 @@
 default:
-  image: docker:24.0.5
+  image: docker:20.10.16
   services:
-    - docker:24.0.5-dind
+    - name: docker:20.10.16-dind
+      alias: docker
 stages:
   - build
   - push
 variables:    
-  DOCKER_HOST: tcp://localhost:2376
+  DOCKER_HOST: tcp://docker:2376
   DOCKER_DRIVER: overlay2
   DOCKER_TLS_CERTDIR: ""  
 build:
