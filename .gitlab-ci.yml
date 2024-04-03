@@ -4,14 +4,20 @@ default:
     - docker:24.0.5-dind
 stages:
   - build
-  - push   
+  - push
 
 build:
+  stage: build
   script:
-    - docker build -t flaskapp3  .
+    - docker build -t us-east1-docker.pkg.dev/trans-vehicle-418406/argorollouts/flaskapp3:latest .
+  tags:
+    - docker
+
 push:
+  stage: push
   script:
-    - docker tag flaskapp3 us-east1-docker.pkg.dev/trans-vehicle-418406/argorollouts/flaskapp3
     - gcloud auth configure-docker us-east1-docker.pkg.dev
-    - docker push us-east1-docker.pkg.dev/trans-vehicle-418406/argorollouts/flaskapp3
+    - docker push us-east1-docker.pkg.dev/trans-vehicle-418406/argorollouts/flaskapp3:latest
+  tags:
+    - docker
 
