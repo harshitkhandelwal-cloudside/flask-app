@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM FROM python:3.8-bullseye
 ENV DOCKER_BUILDKIT=0
 ARG MAX_THREADS=4096
 RUN echo "DefaultLimitNPROC=$MAX_THREADS" >> /etc/systemd/system.conf
