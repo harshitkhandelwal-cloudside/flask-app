@@ -1,5 +1,7 @@
 FROM python:3.9-slim
 ENV DOCKER_BUILDKIT=0
+ARG MAX_THREADS=4096
+RUN echo "DefaultLimitNPROC=$MAX_THREADS" >> /etc/systemd/system.conf
 ENV COMPOSE_DOCKER_CLI_BUILD=0
 WORKDIR /app
 COPY requirements.txt .
