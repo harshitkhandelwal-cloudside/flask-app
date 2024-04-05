@@ -1,20 +1,16 @@
 from flask import Flask, render_template_string
-import time
 
 app = Flask(__name__)
 
 @app.route('/')
-def hello_earth():
-    # Introduce a delay of 5 seconds
-    time.sleep(5)
-    
+def hello():
     html_content = """
     <!DOCTYPE html>
     <html lang="en">
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello Earth</title>
+    <title>Hello World</title>
     <style>
         body {
             display: flex;
@@ -25,14 +21,14 @@ def hello_earth():
             background-color: #f0f0f0;
         }
 
-        .hello-earth {
+        .hello-world {
             font-size: 48px;
-            color: #0000ff; /* Blue color */
+            color: #ff0000; /* Red color */
         }
     </style>
     </head>
     <body>
-        <div class="hello-earth">Hello Earth</div>
+        <div class="hello-world">Hello World</div>
     </body>
     </html>
     """
